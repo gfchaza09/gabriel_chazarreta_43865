@@ -1,0 +1,21 @@
+{% extends "tercera_preentrega_app/base.html" %}
+{% load static %}
+
+{% block title %}Resultados de Búsqueda{% endblock %}
+
+{% block content %}
+<div class="search-results">
+    <h1>Resultados de Búsqueda</h1>
+    <p>Resultados para la búsqueda: "{{ termino_busqueda }}"</p>
+    <ul>
+        {% for resultado in resultados %}
+        <li>
+            <a
+                href="{% if resultado.class.name == 'Videojuego' %}{% url 'tercera_preentrega_app:detalle_videojuego' resultado.pk %}{% elif resultado.class.name == 'Consola' %}{% url 'tercera_preentrega_app:detalle_consola' resultado.pk %}{% else %}{% url 'tercera_preentrega_app:detalle_accesorio' resultado.pk %}{% endif %}">
+                {{resultado }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "tercera_preentrega_app/base.html" %}
+{% load static %}
+{% block title %}Detalle de Accesorio{% endblock %}
+{% block content %}
+<div class="detail-container">
+    <h1>Detalle de Accesorio</h1>
+    <p>Nombre: {{ accesorio.nombre }}</p>
+    <p>Tipo: {{ accesorio.tipo }}</p>
+</div>
+{% endblock %}

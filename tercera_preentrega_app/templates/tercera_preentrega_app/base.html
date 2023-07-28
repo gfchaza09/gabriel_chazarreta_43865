@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{% block title %}Mi Sitio{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'tercera_preentrega_app/css/style.css' %}" />
+</head>
+
+<body>
+  <header>
+    <h1>Mi Sitio de Videojuegos</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="{% url 'tercera_preentrega_app:lista_videojuegos' %}">Videojuegos</a>
+      </li>
+      <li>
+        <a href="{% url 'tercera_preentrega_app:lista_consolas' %}">Consolas</a>
+      </li>
+      <li>
+        <a href="{% url 'tercera_preentrega_app:lista_accesorios' %}">Accesorios</a>
+      </li>
+      <li>
+        <a href="{% url 'tercera_preentrega_app:buscar' %}">Buscar</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    {% block content %}
+    <!-- Aquí va el contenido específico de cada página -->
+    {% endblock %}
+  </main>
+
+  <footer>
+    <p>Gabriel Chazarreta &copy; 2023 - Mi Sitio de Videojuegos</p>
+  </footer>
+
+  <script src="{% static 'tercera_preentrega_app/js/index.js' %}"></script>
+</body>
+
+</html>

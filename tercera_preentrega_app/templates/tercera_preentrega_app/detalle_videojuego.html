@@ -1,0 +1,10 @@
+{% extends "tercera_preentrega_app/base.html" %}
+{% load static %}
+{% block title %}Detalle de Videojuego{% endblock %}
+{% block content %}
+<h1>Detalle de Videojuego</h1>
+<p>Título: {{ videojuego.titulo }}</p>
+<p>Desarrollador: {{ videojuego.desarrollador }}</p>
+<p>Género: {{ videojuego.genero }}</p>
+<p>Año de Lanzamiento: {{ videojuego.año_lanzamiento }}</p>
+{% endblock %}

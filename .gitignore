@@ -1,0 +1,16 @@
+*.pyc
+*.pyo
+__pycache__/
+
+*.sqlite3
+*.env
+
+.vscode/
+.idea/
+*.sublime-workspace
+
+*.pyc
+*.pyo
+*.pyd
+
+venv/

@@ -1,0 +1,9 @@
+{% extends "tercera_preentrega_app/base.html" %}
+{% load static %}
+{% block title %}Detalle de Consola{% endblock %}
+{% block content %}
+<h1>Detalle de Consola</h1>
+<p>Nombre: {{ consola.nombre }}</p>
+<p>Fabricante: {{ consola.fabricante }}</p>
+<p>Año de Lanzamiento: {{ consola.año_lanzamiento }}</p>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "tercera_preentrega_app/base.html" %}
+{% load static %}
+{% block title %}Lista de Consolas{% endblock %}
+{% block content %}
+<h1>Lista de Consolas</h1>
+<div class="container">
+  <ul>
+    {% for consola in consolas %}
+    <li>
+      <a href="{% url 'tercera_preentrega_app:detalle_consola' consola.id %}">
+        {{ consola.nombre }} - {{ consola.fabricante }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="image-container">
+    <img src="{% static 'tercera_preentrega_app/assets/consola.png' %}" alt="consola" />
+  </div>
+</div>
+
+<h2>Agregar nueva consola</h2>
+<form action="" method="POST" id="miFormulario">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar</button>
+</form>
+{% endblock %}

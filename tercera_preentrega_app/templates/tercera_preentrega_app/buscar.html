@@ -1,0 +1,13 @@
+{% extends "tercera_preentrega_app/base.html" %}
+{% load static %}
+
+{% block title %}Buscar{% endblock %}
+
+{% block content %}
+<h1>Buscar</h1>
+<form action="{% url 'tercera_preentrega_app:buscar' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "tercera_preentrega_app/base.html" %}
+{% load static %}
+{% block title %}Lista de Accesorios{% endblock %}
+{% block content %}
+<h1>Lista de Accesorios</h1>
+<div class="container">
+  <ul>
+    {% for accesorio in accesorios %}
+    <li>
+      <a href="{% url 'tercera_preentrega_app:detalle_accesorio' accesorio.id %}">
+        {{ accesorio.nombre }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="image-container">
+    <img src="{% static 'tercera_preentrega_app/assets/accesorio.png' %}" alt="accesorio" />
+  </div>
+</div>
+
+<h2>Agregar nuevo accesorio</h2>
+<form action="" method="POST" id="miFormulario">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar</button>
+</form>
+{% endblock %}
