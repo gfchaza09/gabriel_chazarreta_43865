@@ -7,15 +7,32 @@
 <div class="search-results">
     <h1>Resultados de Búsqueda</h1>
     <p>Resultados para la búsqueda: "{{ termino_busqueda }}"</p>
+    {% if resultados %}
     <ul>
         {% for resultado in resultados %}
         <li>
-            <a
-                href="{% if resultado.class.name == 'Videojuego' %}{% url 'tercera_preentrega_app:detalle_videojuego' resultado.pk %}{% elif resultado.class.name == 'Consola' %}{% url 'tercera_preentrega_app:detalle_consola' resultado.pk %}{% else %}{% url 'tercera_preentrega_app:detalle_accesorio' resultado.pk %}{% endif %}">
-                {{resultado }}
+            {% if tipo_busqueda == 'videojuego' %}
+            <a href="{% url 'tercera_preentrega_app:detalle_videojuego' resultado.pk %}">
+                {{ resultado }}
             </a>
+            {% elif tipo_busqueda == 'consola' %}
+            <a href="{% url 'tercera_preentrega_app:detalle_consola' resultado.pk %}">
+                {{ resultado }}
+            </a>
+            {% else %}
+            <a href="{% url 'tercera_preentrega_app:detalle_accesorio' resultado.pk %}">
+                {{ resultado }}
+            </a>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No se encontraron resultados para "{{ termino_busqueda }}".</p>
+    {% endif %}
+
+    <div>
+        <a href="{% url 'tercera_preentrega_app:buscar' %}" class="btn btn-primary">Realizar otra búsqueda</a>
+    </div>
 </div>
 {% endblock %}

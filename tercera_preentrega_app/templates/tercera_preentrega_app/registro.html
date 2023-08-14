@@ -1,0 +1,33 @@
+{% extends 'tercera_preentrega_app/base.html' %}
+{% block content %}
+<h2>Registrarse</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        {{ form.username.label_tag }} {{ form.username }}
+        <span class="form-error">{{ form.username.errors }}</span>
+    </div>
+    <div>
+        {{ form.email.label_tag }} {{ form.email }}
+        <span class="form-error">{{ form.email.errors }}</span>
+    </div>
+    <div>
+        {{ form.password1.label_tag }} {{ form.password1 }}
+        <span class="form-error">{{ form.password1.errors }}</span>
+    </div>
+    <div>
+        {{ form.password2.label_tag }} {{ form.password2 }}
+        <span class="form-error">{{ form.password2.errors }}</span>
+    </div>
+    <div>
+        {{ form.avatar.label_tag }} {{ form.avatar }}
+        <span class="form-error">{{ form.avatar.errors }}</span>
+    </div>
+    <div class="container-btn">
+        <button type="submit" class="btn-primary">Registrarse</button>
+    </div>
+</form>
+<div class="link-login">
+    <a href="{% url 'tercera_preentrega_app:login' %}">¿Ya tienes una cuenta? Inicia sesión.</a>
+</div>
+{% endblock %}

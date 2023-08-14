@@ -10,6 +10,14 @@
       <a href="{% url 'tercera_preentrega_app:detalle_consola' consola.id %}">
         {{ consola.nombre }} - {{ consola.fabricante }}
       </a>
+      <span class="container-actions">
+        <a href="{% url 'tercera_preentrega_app:editar_consola' consola.id %}">
+          <i class="fas fa-edit"></i>
+        </a>
+        <a href="{% url 'tercera_preentrega_app:eliminar_consola' consola.id %}">
+          <i class="fas fa-trash"></i>
+        </a>
+      </span>
     </li>
     {% endfor %}
   </ul>

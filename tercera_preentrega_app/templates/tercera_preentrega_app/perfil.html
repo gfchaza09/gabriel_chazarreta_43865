@@ -1,0 +1,21 @@
+{% extends 'tercera_preentrega_app/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="profile-heading">¡Bienvenido, {{ usuario.username }}!</h2>
+<div class="profile-image">
+    <p>Foto de perfil</p>
+    {% if usuario.perfil.avatar.url %}
+    <img src="{{ usuario.perfil.avatar.url }}" alt="avatar" class="avatar-image">
+    {% else %}
+    <img src="{% static 'tercera_preentrega_app/assets/img-perfil.png' %}" alt="avatar por defecto"
+        class="avatar-image">
+    {% endif %}
+</div>
+<p class="profile-info">Tu información:</p>
+<ul class="profile-list">
+    <li>Nombre de usuario: {{ usuario.username }}</li>
+    <li>Email: {{ usuario.email }}</li>
+</ul>
+<a href="{% url 'tercera_preentrega_app:editar_perfil' %}" class="btn btn-primary">Actualizar Perfil</a>
+{% endblock %}

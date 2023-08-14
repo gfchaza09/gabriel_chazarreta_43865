@@ -1,47 +1,60 @@
-# Proyecto de Videojuegos - README
-Este proyecto tiene como objetivo crear un sitio web para administrar videojuegos, consolas y accesorios. A continuación, se detalla el orden en el que se probaron las funcionalidades y dónde se encuentran las diferentes partes del proyecto.
+# Proyecto Final Python Coderhouse
 
-## Orden de pruebas de funcionalidades
-1- Se probaron las vistas principales para verificar que se muestran correctamente y que los enlaces a las diferentes secciones funcionan adecuadamente.
+## Descripción
 
-2- Se probó la vista de "Lista de Videojuegos" para asegurarse de que los videojuegos se muestran correctamente en una lista y que cada uno de ellos tiene un enlace a su respectivo detalle. Para las vistas "Consolas" y "Accesorios" se procedió de igual manera.
+Este proyecto es parte de la tercera presentación de mi curso y se enfoca en el desarrollo de un sitio web para gestionar videojuegos, consolas, accesorios y reseñas relacionadas. Es la culminación de aquel proyecto que inicie como tercera presentación, el sitio web "El Rincon del Gamer", como lo titulé es el proyecto final del curso de Python de Coderhouse.
 
-3- Se probó la vista de "Detalle de Videojuego" para verificar que muestra correctamente los detalles de un videojuego específico. Lo mismo para el "Detalle de Consola y Accesorio"
+## Funcionalidades
 
-4- Se probó la funcionalidad de búsqueda para asegurarse de que devuelve los resultados correctos según el término de búsqueda ingresado.
+El sitio web permite a los usuarios:
 
-5- Se probó que los enlaces de cada resultado de búsqueda llevan al detalle correcto, ya sea de videojuego, consola o accesorio.
+- Registrar y autenticarse en el sistema. El usuario tiene un campo opcional para agregar un avatar, en caso de no subir ninguno se utilizará una imagen por defecto desde la carpeta static/assets.
+- Agregar, editar y eliminar videojuegos, consolas y accesorios.
+- Dejar reseñas en los elementos (videojuegos, consolas, accesorios).
+- Realizar búsquedas de elementos por nombre.
+- Acceder a la página "Acerca de mí" para conocer más sobre el desarrollador. El acceso a la página se encuentra en el footer del sitio web.
 
-6- Se probó que el formulario de agregar un nuevo videojuego, consola o accesorio funciona correctamente y que los datos se guardan adecuadamente en la base de datos.
+Se utilizaron 4 modelos principales para la creación del proyecto los cuales son:
 
-7- Se aplicaron estilos CSS para mejorar la apariencia general del sitio web y se verificó que los estilos se aplican correctamente en todas las páginas.
+1. Videojuego: Este modelo representa la información de un videojuego, incluyendo su título, género, desarrollador y año de lanzamiento. Además, se establece una relación con el modelo de Reseña para permitir que los usuarios dejen comentarios sobre los videojuegos.
 
-## Estructura del proyecto
-El proyecto está estructurado de la siguiente manera:
+2. Consola: Este modelo almacena los detalles de una consola, como su nombre, fabricante y año de lanzamiento. Al igual que en el modelo de Videojuego, se establece una relación con el modelo de Reseña para que los usuarios puedan dejar comentarios sobre las consolas.
 
-- **tercera_preentrega_app**: Contiene las vistas, modelos, formularios y archivos relacionados con la aplicación principal del proyecto.
-- **tercera_preentrega_chazarreta**: Configuración del proyecto Django y la URL principal.
-- **static/tercera_preentrega_app**: Carpeta que contiene archivos estáticos, como hojas de estilo CSS, imágenes y scripts de JavaScript.
-- **templates/tercera_preentrega_app**: Contiene los archivos HTML de las diferentes vistas del proyecto.
-- **db.sqlite3**: Base de datos SQLite que almacena la información de videojuegos, consolas y accesorios.
+3. Accesorio: Este modelo guarda información sobre un accesorio, incluyendo su nombre y tipo. Nuevamente, se crea una relación con el modelo de Reseña para permitir comentarios de los usuarios.
 
-## Ejecutar el proyecto
-Para ejecutar el proyecto, asegúrate de tener Python y Django instalados. Luego, sigue los siguientes pasos:
+4. Review (Reseña): Este modelo almacena las reseñas dejadas por los usuarios en los videojuegos, consolas y accesorios. Cada reseña incluye la calificación, el comentario, la fecha de creación y la relación con el usuario que la dejó y el elemento sobre el que se hizo la reseña.
 
-Clona este repositorio en tu computadora.
+## Credenciales de Administrador
 
-Abre una terminal y navega hasta la carpeta del proyecto.
+- Usuario: gabriel
+- Contraseña: 123456
 
-Ejecuta el siguiente comando para aplicar las migraciones de la base de datos:
+## Tecnologías Utilizadas
 
-``python manage.py migrate``
+- Django (versión 4.2.3)
+- HTML5, CSS3
+- Font Awesome (versión 5.8.2)
 
-Luego, crea un superusuario para acceder al panel de administración de Django:
+## Instalación
 
-``python manage.py createsuperuser``
+1. Clona este repositorio en tu máquina local.
+2. Instala las dependencias con `pip install -r requirements.txt`.
+3. Ejecuta las migraciones con `python manage.py migrate`.
+4. Crea un superusuario administrador con `python manage.py createsuperuser`.
+5. Inicia el servidor con `python manage.py runserver`.
 
-Inicia el servidor de desarrollo de Django:
+## Casos de Test Unitarios
 
-``python manage.py runserver``
+El proyecto incluye un archivo Excel llamado `pruebas_proyecto_python_chazarreta.xls` que contiene 10 casos de pruebas unitarias relevantes. Estos casos han sido diseñados para verificar el funcionamiento correcto de las principales funcionalidades del proyecto.
 
-Abre tu navegador web y visita http://localhost:8000 para acceder al sitio web. Para acceder al panel de administración, ve a http://localhost:8000/admin e inicia sesión con el superusuario que creaste en el paso anterior.
+## Video de Funcionamiento
+
+También se ha preparado un video de demostración que muestra el funcionamiento del sitio web, el cual se encuentra en el repositorio: `proyecto_final_chazarreta.webm`
+
+## Contacto
+
+Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
+
+- Nombre: Gabriel Chazarreta
+- Email: gfchazarreta@gmail.com
+- LinkedIn: https://www.linkedin.com/in/gabriel-chazarreta/

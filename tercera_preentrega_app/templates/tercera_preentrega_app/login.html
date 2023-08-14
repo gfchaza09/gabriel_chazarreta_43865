@@ -1,0 +1,22 @@
+{% extends 'tercera_preentrega_app/base.html' %}
+{% block content %}
+<h2>Inicio de sesión</h2>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        {{ form.username.label_tag }} {{ form.username }}
+        <span class="form-error">{{ form.username.errors }}</span>
+    </div>
+    <div>
+        {{ form.password.label_tag }} {{ form.password }}
+        <span class="form-error">{{ form.password.errors }}</span>
+    </div>
+    <button type="submit">Iniciar sesión</button>
+    {% if mensaje %}
+    <p class="alert-message">{{ mensaje }}</p>
+    {% endif %}
+</form>
+<div class="link-registro">
+    <a href="{% url 'tercera_preentrega_app:registro' %}">¿No tienes una cuenta? Crea tu usuario.</a>
+</div>
+{% endblock %}

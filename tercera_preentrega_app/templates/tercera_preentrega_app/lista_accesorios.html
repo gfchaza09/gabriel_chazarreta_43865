@@ -10,6 +10,14 @@
       <a href="{% url 'tercera_preentrega_app:detalle_accesorio' accesorio.id %}">
         {{ accesorio.nombre }}
       </a>
+      <span class="container-actions">
+        <a href="{% url 'tercera_preentrega_app:editar_accesorio' accesorio.id %}">
+          <i class="fas fa-edit"></i>
+        </a>
+        <a href="{% url 'tercera_preentrega_app:eliminar_accesorio' accesorio.id %}">
+          <i class="fas fa-trash"></i>
+        </a>
+      </span>
     </li>
     {% endfor %}
   </ul>

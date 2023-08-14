@@ -2,9 +2,38 @@
 {% load static %}
 {% block title %}Detalle de Accesorio{% endblock %}
 {% block content %}
-<div class="detail-container">
-    <h1>Detalle de Accesorio</h1>
-    <p>Nombre: {{ accesorio.nombre }}</p>
-    <p>Tipo: {{ accesorio.tipo }}</p>
+<h1>Detalle de Accesorio</h1>
+<p>Nombre: {{ accesorio.nombre }}</p>
+<p>Tipo: {{ accesorio.tipo }}</p>
+
+<h2>Reseñas</h2>
+{% if reviews %}
+<ul>
+    {% for review in reviews %}
+    <li>
+        <div>
+            <p>{{ review.usuario.username }}</p>
+        </div>
+        <div>
+            {{ review.comentario }} - {{ review.calificacion }}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se han agregado reseñas aún.</p>
+{% endif %}
+
+<div class="form-container">
+    <h2>Agregar Reseña</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <button type="submit">Agregar Reseña</button>
+    </form>
+</div>
+
+<div>
+    <a href="{% url 'tercera_preentrega_app:lista_accesorios' %}" class="btn btn-primary">Volver atrás</a>
 </div>
 {% endblock %}

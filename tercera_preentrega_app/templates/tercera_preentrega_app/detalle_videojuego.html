@@ -7,4 +7,33 @@
 <p>Desarrollador: {{ videojuego.desarrollador }}</p>
 <p>Género: {{ videojuego.genero }}</p>
 <p>Año de Lanzamiento: {{ videojuego.año_lanzamiento }}</p>
+
+<h2>Reseñas</h2>
+{% if reviews %}
+<ul>
+    {% for review in reviews %}
+    <div>
+        <p>{{ review.usuario.username }}</p>
+    </div>
+    <div>
+        {{ review.comentario }} - {{ review.calificacion }}
+    </div>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se han agregado reseñas aún.</p>
+{% endif %}
+
+<div class="form-container">
+    <h2>Agregar Reseña</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <button type="submit">Agregar Reseña</button>
+    </form>
+</div>
+
+<div>
+    <a href="{% url 'tercera_preentrega_app:lista_videojuegos' %}" class="btn btn-primary">Volver atrás</a>
+</div>
 {% endblock %}

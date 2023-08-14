@@ -1,0 +1,10 @@
+{% extends 'tercera_preentrega_app/base.html' %}
+{% block content %}
+<h2>Eliminar Consola</h2>
+<p>¿Estás seguro de que deseas eliminar la consola "{{ consola.nombre }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Eliminar</button>
+    <a href="{% url 'tercera_preentrega_app:lista_consolas' %}">Cancelar</a>
+</form>
+{% endblock %}

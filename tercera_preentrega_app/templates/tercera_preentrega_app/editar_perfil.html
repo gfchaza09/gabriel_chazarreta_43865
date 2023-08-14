@@ -1,0 +1,21 @@
+{% extends 'tercera_preentrega_app/base.html' %}
+
+{% block content %}
+<h2>Editar Perfil</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        {{ form.username.label_tag }} {{ form.username }}
+        <span>{{ form.username.errors }}</span>
+    </div>
+
+    <div>
+        {{ form.avatar.label_tag }} {{ form.avatar }}
+        <span class="form-error">{{ form.avatar.errors }}</span>
+    </div>
+
+    <div class="container-btn">
+        <button type="submit" class="btn-primary">Guardar Cambios</button>
+    </div>
+</form>
+{% endblock %}

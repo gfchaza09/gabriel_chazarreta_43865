@@ -10,6 +10,14 @@
       <a href="{% url 'tercera_preentrega_app:detalle_videojuego' videojuego.id %}">
         {{ videojuego.titulo }} - {{ videojuego.desarrollador }}
       </a>
+      <span class="container-actions">
+        <a href="{% url 'tercera_preentrega_app:editar_videojuego' videojuego.id %}">
+          <i class="fas fa-edit"></i>
+        </a>
+        <a href="{% url 'tercera_preentrega_app:eliminar_videojuego' videojuego.id %}">
+          <i class="fas fa-trash"></i>
+        </a>
+      </span>
     </li>
     {% endfor %}
   </ul>
@@ -23,6 +31,6 @@
 <form action="" method="POST" id="miFormulario">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Guardar</button>
+  <button type="submit" id="submit-button">Guardar</button>
 </form>
 {% endblock %}
